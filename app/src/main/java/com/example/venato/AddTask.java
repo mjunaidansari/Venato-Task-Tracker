@@ -405,4 +405,29 @@ public class AddTask extends BottomSheetDialogFragment {
 //        Toast.makeText(context, type, Toast.LENGTH_SHORT).show();
 
     }
+
+     private void uploadDoc(Uri file) {
+
+        final ProgressDialog progressDialog = new ProgressDialog(context);
+        progressDialog.setTitle("Uploading Reference Document...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
+        StorageReference reference = storageReference.child("employees").child(username).child(getFileName(file));
+
+        reference.putFile(file)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        progressDialog.dismiss();
+                    }
+                }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+                double progress = (100.0* snapshot.getBytesTransferred()/snapshot.getTotalByteCount());
+                progressDialog.setMessage((int)progress + "% uploaded...");
+            }
+        });
+
+    }
 }

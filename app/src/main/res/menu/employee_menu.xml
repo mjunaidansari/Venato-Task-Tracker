@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/attendance"
+        android:title="My Attendance"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/leaveApplications"
+        android:title="My Leave Applications"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/logout"
+        android:title="Logout"
+        app:showAsAction="never"/>
+
+<!--    <item-->
+<!--        android:id="@+id/service"-->
+<!--        android:title="Start Service"-->
+<!--        app:showAsAction="never"/>-->
+
+<!--    <item-->
+<!--        android:id="@+id/stopService"-->
+<!--        android:title="Stop Service"-->
+<!--        app:showAsAction="never"/>-->
+
+</menu>

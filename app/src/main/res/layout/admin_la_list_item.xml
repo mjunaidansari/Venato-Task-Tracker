@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/eachApplication">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/employee_image"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/employee_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/employee_image"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_toRightOf="@+id/employee_image"
+        android:text="TextView"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/leave_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/employee_name"
+        android:layout_alignLeft="@id/employee_name"
+        android:layout_marginTop="8dp"
+        android:text="Leave Type" />
+
+    <TextView
+        android:id="@+id/leave_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_alignParentRight="true"
+        android:text="Leave Status" />
+
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        android:background="?android:attr/listDivider"
+        android:layout_below="@id/employee_image"
+        android:layout_alignLeft="@id/employee_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/employee_image" />
+
+</RelativeLayout>

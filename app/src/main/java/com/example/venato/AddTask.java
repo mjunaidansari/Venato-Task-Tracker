@@ -402,7 +402,7 @@ public class AddTask extends BottomSheetDialogFragment {
         String[] mimetypes = {"image/*", "application/pdf", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/msword", "application/vnd.ms-excel","application/vnd.openxmlformats-officedocument.spreadsheetml.sheet","application/vnd.ms-powerpoint","application/vnd.openxmlformats-officedocument.presentationml.presentation", "text/plain"};
         intent.putExtra(Intent.EXTRA_MIME_TYPES, mimetypes);
         startActivityForResult(Intent.createChooser(intent, "Select a file"), REQUEST_CODE);
-//        Toast.makeText(context, type, Toast.LENGTH_SHORT).show();
+    //        Toast.makeText(context, type, Toast.LENGTH_SHORT).show();
 
     }
 
@@ -430,4 +430,17 @@ public class AddTask extends BottomSheetDialogFragment {
         });
 
     }
+
+    private String getFileName(Uri uri) {
+
+        Cursor mCursor =
+                context.getContentResolver().query(uri, null, null, null, null);
+        int indexedname = mCursor.getColumnIndex(OpenableColumns.DISPLAY_NAME);
+        mCursor.moveToFirst();
+        String filename = mCursor.getString(indexedname);
+        filename = filename.replaceAll("\\s+", "");
+        mCursor.close();
+        return filename;
+    }
+
 }
